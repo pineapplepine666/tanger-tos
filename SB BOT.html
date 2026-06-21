@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>糖兒機器人 - 服務條款 Terms of Service</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* 基礎樣式設定 */
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #0f172a;
+            color: #f1f5f9;
+            font-family: 'Noto Sans TC', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        /* 自訂的高質感國旗語言切換器 */
+        .custom-dropdown {
+            position: fixed;
+            top: 20px;
+            right: 40px;
+            z-index: 1000;
+            font-size: 14px;
+            user-select: none;
+        }
+        .dropdown-selected {
+            background-color: #1e293b;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 10px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: border-color 0.2s ease;
+        }
+        .dropdown-selected:hover {
+            border-color: #5865f2;
+        }
+        .dropdown-selected i {
+            margin-left: 6px;
+            font-size: 12px;
+            color: #94a3b8;
+            transition: transform 0.2s ease;
+        }
+        .custom-dropdown.open .dropdown-selected i {
+            transform: rotate(180deg);
+        }
+        .dropdown-options {
+            position: absolute;
+            top: calc(100% + 6px);
+            right: 0;
+            background-color: #1e293b;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            min-width: 150px;
+        }
+        .custom-dropdown.open .dropdown-options {
+            display: flex;
+        }
+        .dropdown-option {
+            padding: 12px 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #cbd5e1;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+        .dropdown-option:hover {
+            background-color: #334155;
+            color: #fff;
+        }
+        .flag {
+            font-size: 16px;
+        }
+
+        /* 左側固定導覽列 */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 300px;
+            height: 100vh;
+            background-color: #1e293b;
+            padding: 40px 24px;
+            box-sizing: border-box;
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        /* 左側滾動條美化 */
+        .sidebar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .sidebar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .sidebar::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 3px;
+        }
+        .sidebar::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+
+        .bot-brand h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 28px;
+            color: #5865f2;
+            margin: 0 0 5px 0;
+            flex-shrink: 0;
+        }
+        .bot-brand p {
+            color: #94a3b8;
+            margin: 0;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+        .nav-menu {
+            list-style: none;
+            padding: 0;
+            margin: 40px 0 auto 0;
+            width: 100%;
+        }
+        .nav-menu li {
+            margin-bottom: 12px;
+        }
+        .nav-menu a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+        .nav-menu a i {
+            margin-right: 12px;
+            width: 20px;
+            text-align: center;
+        }
+        .nav-menu a:hover {
+            background-color: #334155;
+            color: #fff;
+        }
+
+        /* 主要內容區 */
+        .main-content {
+            margin-left: 300px;
+            padding: 80px 80px 40px 80px; /* 調整底部間距留給網頁最下方的頁尾 */
+            max-width: 900px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* 條款各區塊樣式 */
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        h2 {
+            font-size: 28px;
+            color: #f8fafc;
+            margin-top: 0;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+        }
+        h2 i {
+            color: #5865f2;
+            margin-right: 12px;
+        }
+        p, li {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #cbd5e1;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        ul li {
+            margin-bottom: 12px;
+        }
+
+        /* 特殊突顯卡片 */
+        .danger-card {
+            background-color: rgba(239, 68, 68, 0.1);
+            border-left: 5px solid #ef4444;
+            padding: 24px;
+            border-radius: 0 12px 12px 0;
+            margin-top: 20px;
+        }
+        .danger-card h3 {
+            color: #ef4444;
+            margin-top: 0;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .danger-card p {
+            color: #fca5a5;
+            font-weight: bold;
+            font-size: 18px;
+            margin: 0;
+        }
+
+        /* 聯絡按鈕網格佈局 */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 30px;
+        }
+
+        /* 可點擊的卡片式按鈕 */
+        .contact-box {
+            background-color: #1e293b;
+            padding: 24px;
+            border-radius: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #f1f5f9;
+            transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), 
+                        border-color 0.2s ease, 
+                        box-shadow 0.2s ease;
+            cursor: pointer;
+        }
+        .contact-box:hover {
+            transform: translateY(-4px) scale(1.02);
+            border-color: #5865f2;
+            box-shadow: 0 10px 20px rgba(88, 101, 242, 0.15);
+        }
+        .contact-box i {
+            font-size: 36px;
+            color: #5865f2;
+            margin-right: 20px;
+            transition: transform 0.2s ease;
+        }
+        .contact-box:hover i {
+            transform: scale(1.1);
+        }
+        .contact-info h4 {
+            margin: 0 0 6px 0;
+            font-size: 18px;
+            color: #fff;
+        }
+        .contact-info p {
+            margin: 0;
+            font-size: 14px;
+            color: #94a3b8;
+        }
+
+        /* 彈出式複制成功提示 */
+        .toast-notification {
+            position: fixed;
+            bottom: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #10b981;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 30px;
+            font-weight: bold;
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+            transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .toast-notification.show {
+            bottom: 40px;
+        }
+
+        /* 💡 網頁最下方版權宣告區塊新樣式 */
+        .footer-info {
+            margin-top: 80px; /* 與上方條款拉開舒服的距離 */
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .footer-info .update-date {
+            font-size: 13px;
+            color: #64748b;
+        }
+        .footer-info .copyright-box {
+            font-size: 13px;
+            color: #475569;
+            text-align: right;
+            line-height: 1.6;
+        }
+        .footer-info .developer-tag {
+            color: #5865f2;
+            font-weight: 500;
+        }
+
+        /* 語系切換用的 class */
+        .lang-content {
+            display: none;
+        }
+        .lang-active {
+            display: block !important;
+        }
+        span.lang-content {
+            display: none;
+        }
+        span.lang-active {
+            display: inline !important;
+        }
+
+        /* 響應式設計 */
+        @media (max-width: 768px) {
+            body { flex-direction: column; }
+            .sidebar { position: relative; width: 100%; height: auto; padding: 30px 20px; overflow-y: visible; }
+            .nav-menu { display: none; }
+            .main-content { margin-left: 0; padding: 40px 20px; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .custom-dropdown { top: 15px; right: 20px; }
+            .footer-info { margin-top: 50px; flex-direction: column; align-items: center; text-align: center; }
+            .footer-info .copyright-box { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="toast" class="toast-notification">
+        <i class="fa-solid fa-circle-check"></i>
+        <span class="lang-content zh-tw lang-active">信箱地址已成功複製！</span>
+        <span class="lang-content zh-cn">信箱地址已成功复制！</span>
+        <span class="lang-content en">Email address copied successfully!</span>
+    </div>
+
+    <div class="custom-dropdown" id="langDropdown">
+        <div class="dropdown-selected" onclick="toggleDropdown()">
+            <span class="flag" id="selectedFlag">🇹🇼</span>
+            <span id="selectedLabel">繁體中文</span>
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <div class="dropdown-options">
+            <div class="dropdown-option" onclick="selectLanguage('zh-tw', '🇹🇼', '繁體中文')">
+                <span class="flag">🇹🇼</span> 繁體中文
+            </div>
+            <div class="dropdown-option" onclick="selectLanguage('zh-cn', '🇨🇳', '简体中文')">
+                <span class="flag">🇨🇳</span> 简体中文
+            </div>
+            <div class="dropdown-option" onclick="selectLanguage('en', '🇺🇸', 'English (US)')">
+                <span class="flag">🇺🇸</span> English (US)
+            </div>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <div class="bot-brand">
+            <h1>糖兒機器人</h1>
+            <p class="lang-content zh-tw lang-active">服務條款 (Terms of Service)</p>
+            <p class="lang-content zh-cn">服务条款 (Terms of Service)</p>
+            <p class="lang-content en">Terms of Service</p>
+        </div>
+        
+        <ul class="nav-menu">
+            <li><a href="#welcome"><i class="fa-solid fa-house"></i> 
+                <span class="lang-content zh-tw lang-active">歡迎</span>
+                <span class="lang-content zh-cn">欢迎</span>
+                <span class="lang-content en">Welcome</span>
+            </a></li>
+            <li><a href="#rules"><i class="fa-solid fa-gavel"></i> 
+                <span class="lang-content zh-tw lang-active">使用規範</span>
+                <span class="lang-content zh-cn">使用规范</span>
+                <span class="lang-content en">Rules</span>
+            </a></li>
+            <li><a href="#privacy"><i class="fa-solid fa-shield-halved"></i> 
+                <span class="lang-content zh-tw lang-active">資料與隱私</span>
+                <span class="lang-content zh-cn">数据与隐私</span>
+                <span class="lang-content en">Privacy</span>
+            </a></li>
+            <li><a href="#disclaimer"><i class="fa-solid fa-triangle-exclamation"></i> 
+                <span class="lang-content zh-tw lang-active">免責聲明</span>
+                <span class="lang-content zh-cn">免责声明</span>
+                <span class="lang-content en">Disclaimer</span>
+            </a></li>
+            <li><a href="#termination"><i class="fa-solid fa-ban"></i> 
+                <span class="lang-content zh-tw lang-active">服務終止</span>
+                <span class="lang-content zh-cn">服务终止</span>
+                <span class="lang-content en">Termination</span>
+            </a></li>
+            <li><a href="#contact"><i class="fa-solid fa-envelope"></i> 
+                <span class="lang-content zh-tw lang-active">聯絡我們</span>
+                <span class="lang-content zh-cn">联络我们</span>
+                <span class="lang-content en">Contact Us</span>
+            </a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        
+        <section id="welcome">
+            <div class="lang-content zh-tw lang-active">
+                <h2><i class="fa-solid fa-house"></i> 1. 接受條款</h2>
+                <p>歡迎使用 <strong>糖兒機器人</strong>（以下簡稱「本機器人」）。本服務條款旨在規範使用者（以下簡稱「您」）與本機器人開發營運團隊（以下簡稱「我們」）之間的權利與義務。</p>
+                <p>當您將本機器人邀請至伺服器或使用其任意功能時，即代表您已閱讀、理解並同意接受本條款之所有內容。如果您不同意本條款，請勿將本機器人加入伺服器，並請立即停止使用。</p>
+                <p>我們保留隨時修改或更新本條款的權利，修改後的條款將於公布時立即生效，恕不另行個別通知。<strong>同時，本機器人可能隨時變更功能內容，恕不另行通知。</strong></p>
+            </div>
+            <div class="lang-content zh-cn">
+                <h2><i class="fa-solid fa-house"></i> 1. 接受条款</h2>
+                <p>欢迎使用 <strong>糖儿机器人</strong>（以下简称“本机器人”）。本服务条款旨在规范用户（以下简称“您”）与本机器人开发运营团队（以下简称“我们”）之间的权利与义务。</p>
+                <p>当您將本机器人邀请至服务器或使用其任意功能时，即代表您已阅读、理解并同意接受本条款之所有内容。如果您不同意本条款，请勿將本机器人加入服务器，并请立即停止使用。</p>
+                <p>我们保留随时修改或更新本条款的权利，修改后的条款將於公布时立即生效，恕不另行個別通知。<strong>同时，本机器人可能随时变更功能内容，恕不另行通知。</strong></p>
+            </div>
+            <div class="lang-content en">
+                <h2><i class="fa-solid fa-house"></i> 1. Acceptance of Terms</h2>
+                <p>Welcome to use <strong>Tang-er Bot</strong> (hereinafter referred to as "the Bot"). These Terms of Service are intended to guide the rights and obligations between the user (hereinafter referred to as "you") and the Bot's development and operation team (hereinafter referred to as "we").</p>
+                <p>By inviting the Bot to your server or using any of its features, you recognize that you have read, understood, and agreed to be bound by all the contents of these Terms. If you do not agree to these Terms, please do not add the Bot to your server and stop using it immediately.</p>
+                <p>We reserve the right to modify or update these Terms at any time, and the modified Terms will take effect immediately upon publication without separate notice. <strong>Meanwhile, the Bot may change its features and contents at any time without prior notice.</strong></p>
+            </div>
+        </section>
+
+        <section id="rules">
+            <div class="lang-content zh-tw lang-active">
+                <h2><i class="fa-solid fa-gavel"></i> 2. 使用資格與禁止行為</h2>
+                <p>使用者在使用本機器人時，必須遵守以下規範，且<strong>不得從事以下禁止行為</strong>：</p>
+                <ul>
+                    <li><strong>遵守官方守則：</strong> 使用者必須同時遵守 Discord 服務條款 及 Discord 社群守則。</li>
+                    <li><strong>禁止惡意行為：</strong> 禁止利用本機器人進行任何惡意攻擊、發送垃圾訊息（Spam）、騷擾或釣魚等惡意行為。</li>
+                    <li><strong>禁止系統干擾：</strong> 禁止試圖修改、干擾或未經授權使用本機器人系統。</li>
+                    <li><strong>禁止逆向工程：</strong> 禁止試圖對本機器人進行逆向工程（Reverse Engineering）。</li>
+                    <li><strong>禁止非法用途：</strong> 禁止利用本機器人傳播非法、色情、暴力、仇恨言論或侵犯他人智慧財產權之內容。</li>
+                </ul>
+            </div>
+            <div class="lang-content zh-cn">
+                <h2><i class="fa-solid fa-gavel"></i> 2. 使用资格与禁止行为</h2>
+                <p>用户在使用本机器人时，必须遵守以下规范，且<strong>不得从事以下禁止行为</strong>：</p>
+                <ul>
+                    <li><strong>遵守官方守则：</strong> 用户必须同时遵守 Discord 服务条款 及 Discord 社群守则。</li>
+                    <li><strong>禁止恶意行为：</strong> 禁止利用本机器人进行任何恶意攻击、发送垃圾消息（Spam）、骚扰或钓鱼等恶意行为。</li>
+                    <li><strong>禁止系统干扰：</strong> 禁止试图修改、干扰或未经授权使用本机器人系统。</li>
+                    <li><strong>禁止逆向工程：</strong> 禁止试图对本机器人进行逆向工程（Reverse Engineering）。</li>
+                    <li><strong>禁止非法用途：</strong> 禁止利用本机器人传播非法、色情、暴力、仇恨言论或侵犯他人知识产权之内容。</li>
+                </ul>
+            </div>
+            <div class="lang-content en">
+                <h2><i class="fa-solid fa-gavel"></i> 2. Eligibility and Prohibited Conduct</h2>
+                <p>When using the Bot, users must comply with the following regulations and <strong>must not engage in the following prohibited behaviors</strong>:</p>
+                <ul>
+                    <li><strong>Comply with Official Rules:</strong> Users must simultaneously comply with the Discord Terms of Service and Discord Community Guidelines.</li>
+                    <li><strong>Prohibit Malicious Actions:</strong> It is forbidden to use the Bot for any malicious attacks, spamming, harassment, or phishing behaviors.</li>
+                    <li><strong>Prohibit System Interference:</strong> It is forbidden to attempt to modify, interfere with, or use the Bot's system without authorization.</li>
+                    <li><strong>Prohibit Reverse Engineering:</strong> It is forbidden to attempt to reverse engineer the Bot.</li>
+                    <li><strong>Prohibit Illegal Use:</strong> It is forbidden to use the Bot to distribute illegal, pornographic, violent, hateful speech, or content that infringes upon others' intellectual property rights.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="privacy">
+            <div class="lang-content zh-tw lang-active">
+                <h2><i class="fa-solid fa-shield-halved"></i> 3. 資料收集與隱私</h2>
+                <p>為了維持機器人的正常運作，我們會收集運作所需的必要資料（例如：伺服器 ID、使用者 ID、頻道 ID、指令輸入紀錄等）。</p>
+                <ul>
+                    <li>我們承諾絕對不會將這些資料出售或外洩給第三方。</li>
+                    <li>詳細的資料處理與保護方式，請參閱我們的《隱私權政策》。</li>
+                </ul>
+            </div>
+            <div class="lang-content zh-cn">
+                <h2><i class="fa-solid fa-shield-halved"></i> 3. 数据收集与隐私</h2>
+                <p>为了维持机器人的正常运作，我们会收集运作所需的必要数据（例如：服务器 ID、用户 ID、频道 ID、指令输入记录等）。</p>
+                <ul>
+                    <li>我们承诺绝对不会將这些数据出售或外泄给第三方。</li>
+                    <li>详细的数据处理与保护方式，请参阅我们的《隐私权政策》。</li>
+                </ul>
+            </div>
+            <div class="lang-content en">
+                <h2><i class="fa-solid fa-shield-halved"></i> 3. Data Collection and Privacy</h2>
+                <p>To maintain the normal operation of the Bot, we collect necessary data required for operation (e.g., Server ID, User ID, Channel ID, command input logs, etc.).</p>
+                <ul>
+                    <li>We promise never to sell or leak this data to third parties.</li>
+                    <li>For details on data processing and protection, please refer to our Privacy Policy.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="disclaimer">
+            <div class="lang-content zh-tw lang-active">
+                <h2><i class="fa-solid fa-triangle-exclamation"></i> 4. 免責聲明</h2>
+                <p><strong>服務現狀：</strong> 本機器人是依「現況」（As-Is）及「現有」（As-Available）基礎提供。我們不保證服務絕對不會中斷、毫無錯誤、或完全不受惡意軟體侵害。</p>
+                <div class="danger-card">
+                    <h3><i class="fa-solid fa-hand-holding-dollar"></i> 重要賠償聲明</h3>
+                    <p>在法律允許的最大範圍內，不論在任何情況下（例如：伺服器資料遺失、社群成員流失、機器人突然斷線或停止營運等），因使用或無法使用本機器人所造成的任何損失，我們皆不承擔任何賠償責任，亦不會做出任何金錢或形式上的賠償。</p>
+                </div>
+            </div>
+            <div class="lang-content zh-cn">
+                <h2><i class="fa-solid fa-triangle-exclamation"></i> 4. 免责声明</h2>
+                <p><strong>服务现状：</strong> 本机器人是依“现状”（As-Is）及“现有”（As-Available）基础提供。我们不保证服务绝对不会中断、毫无错误、或完全不受恶意软件侵害。</p>
+                <div class="danger-card">
+                    <h3><i class="fa-solid fa-hand-holding-dollar"></i> 重要赔偿声明</h3>
+                    <p>在法律允许的最大范围内，不论在任何情况下（例如：服务器数据遗失、社区成员流失、机器人突然断线或停止运营等），因使用或无法使用本机器人所造成的任何损失，我们皆不承担任何赔偿责任，亦不会做出任何金钱或形式上的赔偿。</p>
+                </div>
+            </div>
+            <div class="lang-content en">
+                <h2><i class="fa-solid fa-triangle-exclamation"></i> 4. Disclaimer</h2>
+                <p><strong>Service Status:</strong> The Bot is provided on an "As-Is" and "As-Available" basis. We do not guarantee that the service will be uninterrupted, error-free, or entirely free from malicious software.</p>
+                <div class="danger-card">
+                    <h3><i class="fa-solid fa-hand-holding-dollar"></i> Important Compensation Statement</h3>
+                    <p>To the maximum extent permitted by law, under no circumstances (such as server data loss, community member loss, sudden bot disconnection, or cessation of operations, etc.) shall we bear any liability for damages or make any monetary or formal compensation for any loss caused by the use or inability to use the Bot.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="termination">
+            <div class="lang-content zh-tw lang-active">
+                <h2><i class="fa-solid fa-ban"></i> 5. 服務終止與限制</h2>
+                <p>我們保留在不事先通知的情況下，因下列原因隨時暫停、限制或終止向特定使用者或特定伺服器提供服務的權利：</p>
+                <ul>
+                    <li>違反本服務條款或 Discord 官方規範。</li>
+                    <li>惡意佔用大量伺服器資源，影響其他使用者權益。</li>
+                    <li>機器人進行技術維護、升級或停止營運。</li>
+                </ul>
+            </div>
+            <div class="lang-content zh-cn">
+                <h2><i class="fa-solid fa-ban"></i> 5. 服务终止与限制</h2>
+                <p>我们保留在不事先通知的情况下，因下列原因随时暂停、限制或终止向特定用户或特定服务器提供服务的权利：</p>
+                <ul>
+                    <li>违反本服务条款或 Discord 官方规范。</li>
+                    <li>恶意占用大量服务器资源，影响其他用户权益。</li>
+                    <li>机器人进行技术维护、升级或停止运营。</li>
+                </ul>
+            </div>
+            <div class="lang-content en">
+                <h2><i class="fa-solid fa-ban"></i> 5. Service Termination and Limitation</h2>
+                <p>We reserve the right to suspend, limit, or terminate services to specific users or servers at any time without prior notice for the following reasons:</p>
+                <ul>
+                    <li>Violation of these Terms of Service or official Discord guidelines.</li>
+                    <li>Maliciously occupying a large amount of server resources, affecting the rights of other users.</li>
+                    <li>Technical maintenance, upgrades, or termination of Bot operations.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="lang-content zh-tw lang-active">
+                <h2><i class="fa-solid fa-envelope"></i> 6. 聯絡我們</h2>
+                <p>如果您對本服務條款有任何疑問、建議或需要回報錯誤（Bug），歡迎透過以下方式聯絡我們：</p>
+            </div>
+            <div class="lang-content zh-cn">
+                <h2><i class="fa-solid fa-envelope"></i> 6. 联络我们</h2>
+                <p>如果您对本服务条款有任何疑问、建议或需要回报错误（Bug），欢迎通过以下方式联络我们：</p>
+            </div>
+            <div class="lang-content en">
+                <h2><i class="fa-solid fa-envelope"></i> 6. Contact Us</h2>
+                <p>If you have any questions, suggestions, or need to report bugs regarding these Terms of Service, please feel free to contact us through the following methods:</p>
+            </div>
+            
+            <div class="contact-grid">
+                <a href="https://discord.gg/你的邀請連結" target="_blank" class="contact-box">
+                    <i class="fa-brands fa-discord"></i>
+                    <div class="contact-info">
+                        <h4>Discord 支援伺服器</h4>
+                        <p class="lang-content zh-tw lang-active">點擊立即加入群組 ➔</p>
+                        <p class="lang-content zh-cn">点击立即加入群组 ➔</p>
+                        <p class="lang-content en">Click to join server ➔</p>
+                    </div>
+                </a>
+                
+                <div onclick="copyEmail('your-email@example.com')" class="contact-box">
+                    <i class="fa-solid fa-envelope"></i>
+                    <div class="contact-info">
+                        <h4>聯絡信箱</h4>
+                        <p id="emailText">your-email@example.com</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="footer-info">
+            <div class="update-date">
+                <span class="lang-content zh-tw lang-active">最後更新：2026/06/21</span>
+                <span class="lang-content zh-cn">最后更新：2026/06/21</span>
+                <span class="lang-content en">Last Updated: 2026/06/21</span>
+            </div>
+            <div class="copyright-box">
+                <div>© 2026 Tang-Er Supporters. All Rights Reserved.</div>
+                <div>Developed with care by <span class="developer-tag">friesyummy</span></div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleDropdown() {
+            document.getElementById('langDropdown').classList.toggle('open');
+        }
+
+        function selectLanguage(lang, flag, label) {
+            document.getElementById('selectedFlag').innerText = flag;
+            document.getElementById('selectedLabel').innerText = label;
+            document.getElementById('langDropdown').classList.remove('open');
+            
+            const elements = document.querySelectorAll('.lang-content');
+            elements.forEach(el => {
+                if (el.classList.contains(lang)) {
+                    el.classList.add('lang-active');
+                } else {
+                    el.classList.remove('lang-active');
+                }
+            });
+        }
+
+        window.addEventListener('click', function(e) {
+            const dropdown = document.getElementById('langDropdown');
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove('open');
+            }
+        });
+
+        function copyEmail(email) {
+            navigator.clipboard.writeText(email).then(() => {
+                const toast = document.getElementById('toast');
+                toast.classList.add('show');
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 3000);
+            }).catch(err => {
+                console.error('複製失敗: ', err);
+            });
+        }
+    </script>
+</body>
+</html>
