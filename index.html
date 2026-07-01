@@ -8,19 +8,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
     <style>
-        /* 基礎樣式設定 */
         html {
             scroll-behavior: smooth;
         }
-        
-        /* 核心設計：隱藏原生滑鼠，全面啟用綠色光標 */
         * {
             box-sizing: border-box;
             cursor: none; 
         }
-        
         body {
             background-color: #0f172a;
             color: #f1f5f9;
@@ -29,13 +24,11 @@
             padding: 0;
             display: flex;
         }
-
-        /* 自定義滑鼠跟隨光標 (綠色) */
         #custom-cursor {
             position: fixed;
             width: 15px;
             height: 15px;
-            background: #00ff66; /* 亮綠色核心 */
+            background: #00ff66;
             border-radius: 50%;
             pointer-events: none;
             z-index: 10002;
@@ -43,8 +36,6 @@
             transform: translate(-50%, -50%);
             transition: transform 0.05s ease-out, background-color 0.2s ease;
         }
-
-        /* 滑鼠大範圍外發光 (綠色光暈) */
         #cursor-glow {
             position: fixed;
             width: 350px;
@@ -56,8 +47,6 @@
             transform: translate(-50%, -50%);
             transition: left 0.1s ease-out, top 0.1s ease-out;
         }
-
-        /* 自訂的高質感國旗語言切換器 */
         .custom-dropdown {
             position: fixed;
             top: 20px;
@@ -78,7 +67,7 @@
             transition: border-color 0.2s ease;
         }
         .dropdown-selected:hover {
-            border-color: #00ff66; /* 移上去變綠色邊框 */
+            border-color: #00ff66;
         }
         .dropdown-selected i {
             margin-left: 6px;
@@ -115,13 +104,11 @@
         }
         .dropdown-option:hover {
             background-color: #334155;
-            color: #00ff66; /* 選單滑過字體變綠色 */
+            color: #00ff66;
         }
         .flag {
             font-size: 16px;
         }
-
-        /* 左側固定導覽列 */
         .sidebar {
             position: fixed;
             top: 0;
@@ -137,8 +124,6 @@
             overflow-y: auto;
             overflow-x: hidden;
         }
-
-        /* 左側滾動條美化 */
         .sidebar::-webkit-scrollbar {
             width: 6px;
         }
@@ -152,11 +137,10 @@
         .sidebar::-webkit-scrollbar-thumb:hover {
             background: #475569;
         }
-
         .bot-brand h1 {
             font-family: 'Poppins', sans-serif;
             font-size: 28px;
-            color: #00ff66; /* 調整為綠色主題品牌色 */
+            color: #00ff66;
             margin: 0 0 5px 0;
             flex-shrink: 0;
         }
@@ -192,11 +176,9 @@
         }
         .nav-menu a:hover {
             background-color: #334155;
-            color: #00ff66; /* 側邊欄懸停變綠色 */
-            padding-left: 22px; /* 微幅往右滑動質感 */
+            color: #00ff66;
+            padding-left: 22px;
         }
-
-        /* 主要內容區 */
         .main-content {
             margin-left: 300px;
             padding: 80px 80px 40px 80px; 
@@ -204,8 +186,6 @@
             width: 100%;
             box-sizing: border-box;
         }
-
-        /* 條款各區塊樣式 */
         section {
             padding: 60px 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -219,7 +199,7 @@
             align-items: center;
         }
         h2 i {
-            color: #00ff66; /* 圖示全部改為主題綠色 */
+            color: #00ff66;
             margin-right: 12px;
         }
         p, li {
@@ -233,8 +213,6 @@
         ul li {
             margin-bottom: 12px;
         }
-
-        /* 特殊突顯卡片 */
         .danger-card {
             background-color: rgba(239, 68, 68, 0.1);
             border-left: 5px solid #ef4444;
@@ -254,16 +232,12 @@
             font-size: 18px;
             margin: 0;
         }
-
-        /* 聯絡按鈕網格佈局 */
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 24px;
             margin-top: 30px;
         }
-
-        /* 可點擊的卡片式按鈕 */
         .contact-box {
             background-color: #1e293b;
             padding: 24px;
@@ -279,12 +253,12 @@
         }
         .contact-box:hover {
             transform: translateY(-4px) scale(1.02);
-            border-color: #00ff66; /* 懸停改為綠色邊框 */
+            border-color: #00ff66;
             box-shadow: 0 10px 20px rgba(0, 255, 102, 0.15);
         }
         .contact-box i {
             font-size: 36px;
-            color: #00ff66; /* 改為綠色 */
+            color: #00ff66;
             margin-right: 20px;
             transition: transform 0.2s ease;
         }
@@ -301,8 +275,6 @@
             font-size: 14px;
             color: #94a3b8;
         }
-
-        /* 彈出式複製成功提示 */
         .toast-notification {
             position: fixed;
             bottom: -60px;
@@ -315,7 +287,7 @@
             font-weight: bold;
             box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
             transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            z-index: 10050; /* 確保提示在自定義滑鼠正下方，但高於其他組件 */
+            z-index: 10050;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -324,8 +296,6 @@
         .toast-notification.show {
             bottom: 40px;
         }
-
-        /* 版權宣告區塊樣式 */
         .footer-info {
             margin-top: 80px; 
             border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -347,11 +317,9 @@
             line-height: 1.6;
         }
         .footer-info .developer-tag {
-            color: #00ff66; /* 工程師名字顏色調整為綠色 */
+            color: #00ff66;
             font-weight: 500;
         }
-
-        /* 語系切換用的 class */
         .lang-content {
             display: none;
         }
@@ -364,8 +332,6 @@
         span.lang-active {
             display: inline !important;
         }
-
-        /* 響應式設計 */
         @media (max-width: 768px) {
             body { flex-direction: column; }
             .sidebar { position: relative; width: 100%; height: auto; padding: 30px 20px; overflow-y: visible; }
@@ -515,7 +481,7 @@
                 <h2><i class="fa-solid fa-shield-halved"></i> 3. 資料收集與隱私</h2>
                 <p>為了維持機器人的正常運作，我們會收集運作所需的必要資料（例如：伺服器 ID、使用者 ID、頻道 ID、指令輸入紀錄等）。</p>
                 <ul>
-                    <li>我們承諾絕對不會將這些資料出售或外洩給第三方。</li>
+                    <li>我們承諾絕對不會將 these 資料出售或外洩給第三方。</li>
                     <li>詳細的資料處理與保護方式，請參閱我們的《隱私權政策》。</li>
                 </ul>
             </div>
@@ -543,7 +509,7 @@
                 <p><strong>服務現狀：</strong> 本機器人是依「現況」（As-Is）及「現有」（As-Available）基礎提供。我們不保證服務絕對不會中斷、毫無錯誤、或完全不受惡意軟體侵害。</p>
                 <div class="danger-card">
                     <h3><i class="fa-solid fa-hand-holding-dollar"></i> 重要賠償聲明</h3>
-                    <p>在法律允許的最大範圍內，不論在任何情況下（例如：伺服器資料遺失、社群成員流失、機器人突然斷線或停止營運等），因使用或無法使用本機器人所造成的任何損失，我們皆不承擔 any 賠償責任，亦不會做出任何金錢或形式上的賠償。</p>
+                    <p>在法律允許的最大範圍內，不論在任何情況下（例如：伺服器資料遺失、社群成員流失、機器人突然斷線或停止營運等），因使用或無法使用本機器人所造成的任何損失，我們皆不承擔任何賠償責任，亦不會做出任何金錢或形式上的賠償。</p>
                 </div>
             </div>
             <div class="lang-content zh-cn">
@@ -601,7 +567,7 @@
             </div>
             <div class="lang-content zh-cn">
                 <h2><i class="fa-solid fa-envelope"></i> 6. 联络我们</h2>
-                <p>如果您对本服务条款有任何疑问、建议 or 需要回报错误（Bug），欢迎通过以下方式联络我们：</p>
+                <p>如果您对本服务条款有任何疑问、建议或需要回报错误（Bug），欢迎通过以下方式联络我们：</p>
             </div>
             <div class="lang-content en">
                 <h2><i class="fa-solid fa-envelope"></i> 6. Contact Us</h2>
@@ -647,16 +613,13 @@
         const cursor = document.getElementById('custom-cursor');
         const glow = document.getElementById('cursor-glow');
 
-        // 監聽滑鼠移動
         document.addEventListener('mousemove', (e) => {
             cursor.style.left = e.clientX + 'px';
             cursor.style.top = e.clientY + 'px';
-            
             glow.style.left = e.clientX + 'px';
             glow.style.top = e.clientY + 'px';
         });
 
-        // 監聽互動元素，滑鼠放上去放大並維持亮綠色
         const interactiveElements = document.querySelectorAll('.nav-menu a, .dropdown-selected, .dropdown-option, .contact-box');
         interactiveElements.forEach(el => {
             el.addEventListener('mouseenter', () => {
@@ -669,7 +632,6 @@
             });
         });
 
-        // 語言下拉選單邏輯
         function toggleDropdown() {
             document.getElementById('langDropdown').classList.toggle('open');
         }
@@ -696,7 +658,6 @@
             }
         });
 
-        // 信箱複製邏輯
         function copyEmail(email) {
             navigator.clipboard.writeText(email).then(() => {
                 const toast = document.getElementById('toast');
@@ -705,9 +666,18 @@
                     toast.classList.remove('show');
                 }, 3000);
             }).catch(err => {
-                console.error('複製失敗: ', err);
+                console.error(err);
             });
         }
+
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.addEventListener('keydown', event => {
+            if (event.keyCode === 123 || 
+                (event.ctrlKey && event.shiftKey && (event.keyCode === 73 || event.keyCode === 74)) || 
+                (event.ctrlKey && event.keyCode === 85)) { 
+                event.preventDefault();
+            }
+        });
     </script>
 </body>
 </html>
